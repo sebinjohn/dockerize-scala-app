@@ -1,0 +1,15 @@
+---
+language: scala
+scala:
+    - 2.11.8
+
+services:
+    - docker
+
+before_install:
+    - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+
+script:
+    - sbt assembly
+    - 'docker build -t "$DOCKER_USERNAME"/scala-counter:v1 .'
+    - 'docker push "$DOCKER_USERNAME"/scala-counter:v1
