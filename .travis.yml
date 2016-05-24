@@ -12,4 +12,4 @@ before_install:
 script:
     - sbt assembly
     - 'docker build -t "$DOCKER_USERNAME"/scala-counter:v1 .'
-    - 'docker push "$DOCKER_USERNAME"/scala-counter:v1
+    - 'docker push "$DOCKER_USERNAME"/scala-counter:v1'
